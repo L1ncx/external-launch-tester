@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>External Launch Debugger</title>
+  <style>
+    body { font-family: sans-serif; padding: 2em; background: #f9f9f9; color: #333; }
+    h1 { color: #2d2d2d; }
+    pre { background: #eee; padding: 1em; border-radius: 5px; }
+    .info { margin-bottom: 1em; }
+  </style>
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const result = {};
+      for (const [key, value] of params.entries()) {
+        result[key] = value;
+      }
+      document.getElementById("output").textContent = JSON.stringify(result, null, 2);
+    };
+  </script>
+</head>
+<body>
+  <h1>🌐 External Launch URL Debugger</h1>
+  <p class="info">This page shows all query parameters passed to it. Use it to test launching from any system or tool.</p>
+  
+  <h2>🔍 Query Parameters:</h2>
+  <pre id="output">Waiting for query parameters...</pre>
+
+  <footer>
+    <p style="margin-top: 2em; font-size: 0.9em; color: #666;">© Open Source · MIT License · Fork on GitHub</p>
+  </footer>
+</body>
+</html>
